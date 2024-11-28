@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shape Maker</title>
+</head>
+<body>
+    <h1>Shape Maker</h1>
+    <div class="mainBody">
+        <!--This is the selector that choses shapes-->
+        <div class="selector">
+            <p>Select a shape</p>
+            <!--The on change calls the function handleSelection that choses what information is shown below-->
+            <select id="select" onChange="handleSelection(value)">
+                <option selected>Please select a shape</option>
+                <option value="rectangleInfo">Rectangle</option>
+                <option value="circleInfo">Circle</option>
+                <option value="triangleInfo">Triangle</option>
+                <option value="squareInfo">Square</option>
+            </select>
+        </div>
+        <!--This is the div that has the input for rectangle and the button to call the rectangle functions-->
+        <!--This div is hidden by default, and is shown by the selector-->
+        <div class="hide" id="rectangleInfo">
+            <form>
+                <label for="width">Width</label>
+                <input type="number" name="width" id="widthRec" placeholder="width"><br><br>
+                <label for="height">Height</label>
+                <input type="number" name="height" id="heightRec" placeholder="height"><br><br>
+                <input type="button" value="Create" onclick="createRectangle(document.getElementById('widthRec').value,document.getElementById('heightRec').value)";>
+            </form>
+        </div>
+        <!--This is the div that has the input for circle and the button to call the circle functions-->
+        <!--This div is hidden by default, and is shown by the selector-->
+        <div class="hide" id="circleInfo">
+            <form>
+                <label for="radius">Radius</label>
+                <input type="number" name="radius" id="radius" placeholder="radius"><br><br>
+                <input type="button" value="Create" onclick="createCircle(document.getElementById('radius').value)";>
+            </form>
+        </div>
+        <!--This is the div that has the input for triangle and the button to call the triangle functions-->
+        <!--This div is hidden by default, and is shown by the selector-->
+        <div class="hide" id="triangleInfo">
+            <form>
+                <label for="height">Height</label>
+                <input type="number" name="height" id="heightTri" placeholder="height"><br><br>
+                <label for="base">Base</label>
+                <input type="number" name="base" id="baseTri" placeholder="base"><br><br>
+                <input type="button" value="Create" onclick="createTriangle(document.getElementById('heightTri').value,document.getElementById('baseTri').value)";>
+            </form>
+        </div>
+        <!--This is the div that has the input for square and the button to call the square functions-->
+        <!--This div is hidden by default, and is shown by the selector-->
+        <div class="hide" id="squareInfo">
+            <form>
+                <label for="sideLength">Side lenght</label>
+                <input type="number" name="sideLength" id="sideLength" placeholder="sideLength"><br><br>
+                <input type="button" value="Create" onclick="createSquare(document.getElementById('sideLength').value)";>
+            </form>
+        </div>
+        <!--This creates the canvas field-->
+        <canvas id="myCanvas" width="1000" height="1000"></canvas>
+        <!--This is empty fields that is filled by javascript, called the function from the button that creates the shape-->
+        <div class="infoOutput">
+            <h2 id="infoHeader">
+
+            </h2>
+            <p id="infoParagraf">
+
+            </p>
+        </div>
+    </div>
+    <!--This is the only css in the code, this just hides the input fields by default-->
+    <style>
+        .hide{
+            display:none;
+        }
+    </style>
+
+    <script src='./script.js'></script>
+    </body>
